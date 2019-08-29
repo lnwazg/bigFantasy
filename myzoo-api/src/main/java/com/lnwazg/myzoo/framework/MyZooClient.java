@@ -457,8 +457,8 @@ public class MyZooClient
     //此为守护线程
     static
     {
-        //启动一个守护进程，每隔1分钟上报一次各节点的调用情况，然后清空数据
-        ExecMgr.startDaemenThread(() -> {
+        //启动一个进程，每隔1分钟上报一次各节点的调用情况，然后清空数据
+        ExecMgr.startThread(() -> {
             while (true)
             {
                 //上报一次数据，清空，然后睡眠60s后再次上报

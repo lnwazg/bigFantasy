@@ -95,7 +95,7 @@ public class MQFramework
         //起一个定时器，0延迟，从常量表里读取默认的拉取间隔时间，定时执行远程消息拉取工作。
         //拉取到消息之后，执行相应的controller的相应的处理方法
         //每分钟执行一次收取操作，并交由框架做相应的处理
-        ExecMgr.startDaemenThread(() -> {
+        ExecMgr.startThread(() -> {
             while (true)
             {
                 //是否有消息收到了
@@ -161,7 +161,7 @@ public class MQFramework
         //起一个定时器，0延迟，从常量表里读取默认的拉取间隔时间，定时执行远程消息拉取工作。
         //拉取到消息之后，执行相应的controller的相应的处理方法
         //每分钟执行一次收取操作，并交由框架做相应的处理
-        ExecMgr.startDaemenThread(() -> {
+        ExecMgr.startThread(() -> {
             while (true)
             {
                 //同步收消息，会导致zeroMQ出问题，因此不再使用同步收消息的功能，而改用异步收消息       2017-7-9
